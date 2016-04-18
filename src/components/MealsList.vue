@@ -1,27 +1,30 @@
 <style>
 .mealslist {
-    margin: 30px;
-    background: #E3F2FD;
-    padding: 5px 15px;
+  margin: 30px;
+  background: #607D8B;
+  padding: 5px 15px;
+  border-radius: 6px;
+  color: #fff;
 }
- h2 {
-     color: #08c;
-     font-family: sans-serif;
- }
+.json {
+  margin: 40px;
+  color: #455A64;
+}
 </style>
 
 <template>
-    <div class="mealslist">
-        <h2>Meals lists</h2>
-        <p>Blood sugar + color + date + time ++</p>
-        <p>Adress of json file : <a href="{{json}}">{{json}}</a></p>
-        <p>{{meals | json 2}}</p>
-
-    </div>
+  <div class="mealslist" v-for="meal in meals">
+    <meal v-bind:name="meal.name" v-bind:sugar="meal.blood_sugar" v-bind:created="meal.created_at"></meal>
+  </div>
+  <p class="json">{{meals | json 2}}</p>
 </template>
 
 <script>
+  import MealComponent from './SingleMeal'
   export default {
+    components: {
+      'meal': MealComponent
+    },
     data: function () {
       return {
         meals: []
