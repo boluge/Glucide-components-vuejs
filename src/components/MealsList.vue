@@ -15,21 +15,28 @@
         <h2>Meals lists</h2>
         <p>Blood sugar + color + date + time ++</p>
         <p>Adress of json file : <a href="{{json}}">{{json}}</a></p>
-        <ajax-json json="{{json}}"></ajax-json>
+        <p>{{meals | json 2}}</p>
+
     </div>
 </template>
 
 <script>
   export default {
-    components: {
-      'ajax-json': 'wtf !'
+    data: function () {
+      return {
+        meals: []
+      }
     },
     props: ['json'],
-    computed: {
-      toto () {
-        return 'Yo ça marche !'
+    ready () {
+      this.fetchLeft()
+    },
+    methods: {
+      fetchLeft: function () {
+        this.$http.get(this.json).then(function (results) {
+          this.$set('meals', results.data)
+        })
       }
     }
   }
-  // https://github.com/vuejs/vue-resource/blob/master/docs/http.md
 </script>
