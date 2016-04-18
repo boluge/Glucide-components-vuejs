@@ -20,11 +20,9 @@
 </template>
 
 <script>
-  import MakeAjax from './AjaxJson.js'
-
   export default {
     components: {
-      'ajax-json': new MakeAjax(this.json)
+      'ajax-json': 'wtf !'
     },
     props: ['json'],
     computed: {
@@ -33,4 +31,5 @@
       }
     }
   }
+  // https://github.com/vuejs/vue-resource/blob/master/docs/http.md
 </script>

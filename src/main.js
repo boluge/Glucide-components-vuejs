@@ -6,5 +6,10 @@ new Vue({
   el: 'body',
   components: {
     mealslist: MealsList
+  },
+  methods: {
+    say: function (msg) {
+      console.log(msg)
+    }
   }
 })
