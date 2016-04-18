@@ -15,11 +15,17 @@
         <h2>Meals lists</h2>
         <p>Blood sugar + color + date + time ++</p>
         <p>Adress of json file : <a href="{{json}}">{{json}}</a></p>
+        <ajax-json json="{{json}}"></ajax-json>
     </div>
 </template>
 
 <script>
+  import MakeAjax from './AjaxJson.js'
+
   export default {
+    components: {
+      'ajax-json': new MakeAjax(this.json)
+    },
     props: ['json'],
     computed: {
       toto () {
