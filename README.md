@@ -1,4 +1,4 @@
-# glucide-components-vuejs
+# Glucide-components-vuejs
 
 > A Vue.js project
 
