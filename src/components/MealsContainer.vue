@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import MealComponent from './SingleMeal'
+  import MealComponent from './MealList'
   export default {
     components: {
       'meal': MealComponent

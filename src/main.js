@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRessource from 'vue-resource'
 
-import MealsList from './components/MealsList'
+import MealsList from './components/MealsContainer'
 
 /* eslint-disable no-new */
 Vue.use(VueRessource)

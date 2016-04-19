@@ -1,17 +1,20 @@
 <style>
 .mealslist {
-    margin: 30px;
-    background: #455A64;
-    padding: 10px
+  margin: 30px;
+  background: #455A64;
+  padding: 10px
 }
  h2 {
-     color: #fff;
-     font-size: 16px;
-     margin: 10px;
-     margin-left: 55px;
+   color: #fff;
+   font-size: 16px;
+   margin: 10px;
+   margin-left: 55px;
  }
  .meal {
    position: relative;
+ }
+ .date {
+   margin-left: 55px;
  }
  .glycemie {
    position: absolute;
@@ -45,12 +48,15 @@
   <div class="meal">
     <span class="glycemie {{class}}">{{sugar}}</span>
     <h2>{{name}}</h2>
+    <p class="date">Le {{creation}}</p>
   </div>
 
   <!--<meal name="{{meal.name}}" sugar="{{meal.blood_sugar}}" created="{{meal.created_at}}"></meal>-->
 </template>
 
 <script>
+  import moment from 'moment'
+  moment.locale('fr')
   export default {
     props: {
       'name': {type: String},
@@ -68,6 +74,10 @@
         } else {
           return 'sugar-hyper'
         }
+      },
+      creation () {
+        var date = moment(this.created, 'YYYY-MM-DD HH:mm:ss')
+        return date.format('Do MMMM YYYY à HH:mm')
       }
     }
   }
